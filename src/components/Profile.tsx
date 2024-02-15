@@ -15,18 +15,22 @@ const Location = styled(Box)`
     margin-top:40px;
 `
 
-const Profile = () => {
+const Profile = ({userInfo}) => {
   return (
     <Box>  
         <Box>
-            <Image src="../../public/73094136.png" />
+            <Image src={userInfo.avatar_url} />
         </Box>
         <Textgraph>
             <Typography>Om Sharma</Typography>
-            <Typography>@Omsharma1813111032</Typography>
+            <Typography>@{userInfo.login}</Typography>
             <Location>
-                <Typography>Krishna Engineering Colllege</Typography>
-                <Typography>Uttar Pardesh, Ghaziabad</Typography>
+                <Typography>
+                    {
+                        userInfo.company ? userInfo.company : "No company"
+                    }
+                </Typography>
+                <Typography>{userInfo.location}</Typography>
             </Location>
         </Textgraph>
     </Box>
