@@ -22,7 +22,7 @@ const Profile = ({userInfo}) => {
             <Image src={userInfo.avatar_url} />
         </Box>
         <Textgraph>
-            <Typography>Om Sharma</Typography>
+            <Typography>{userInfo.name}</Typography>
             <Typography>@{userInfo.login}</Typography>
             <Location>
                 <Typography>

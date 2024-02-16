@@ -5,10 +5,10 @@ import Usercard from "../components/Usercard"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getUserInfo, getUserRepos } from "../services/Apis"
-// import { AxiosResponse, AxiosError } from "axios"
+import { AxiosResponse, AxiosError } from "axios"
 
 const Wrapper = styled(Box)`
-    margin-top:70px;
+    margin-top:40px;
 `
 
 interface Params {
@@ -26,7 +26,7 @@ const User: React.FC<Params> = () => {
 
     const getData = async()=>{
         try{
-            const response:string[] = await getUserInfo(username)
+            const response = await getUserInfo(username)
             const response1 = await getUserRepos(username);
             setUserInfo(response.data)
             setRepos(response1.data)
@@ -37,15 +37,13 @@ const User: React.FC<Params> = () => {
         
     }
 
-
     useEffect(()=>{
         getData()
     },[username])
 
 
-
     return (
-    <Container >
+    <Container style={{paddingBottom:"100px"}} >
         <Box>
             <Header/>
         </Box>
